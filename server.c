@@ -21,7 +21,7 @@
 #define SUCCESS 0
 #define ERROR 1
 
-#define OUTPUT_FILE "output.txt"
+#define OUTPUT_FILE "out"
 
 
 int server(const int port, const char * key) {
@@ -46,7 +46,6 @@ int server(const int port, const char * key) {
 
   int client_listening =  server_accept_client(skt, server_decryptor, file);
 
-  fputc('\n',file);
   fclose(file);
   
   encryptor_destroy(server_decryptor);
@@ -79,14 +78,12 @@ int server_accept_client(socket_t * skt,
       encryptor_encrypt(server_decryptor,chunk, bytes_received);
       fwrite(chunk, bytes_received, 1, file);
     }
-
-    socket_destroy(peer_socket);
     free(peer_socket);
   }
 
   if (is_socket_accepted_valid) {
-    return ERROR;
-  } else { 
     return SUCCESS;
+  } else { 
+    return ERROR;
   }
 }

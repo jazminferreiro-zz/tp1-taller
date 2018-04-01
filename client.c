@@ -48,7 +48,7 @@ int client(const char * ip, const int port,
     return ERROR; // error
   }
   fseek(file,0,SEEK_END);
-  int file_len = ftell(file)-1;
+  int file_len = ftell(file);
   
   client_send_file_to_server(skt, client_encryptor, file, file_len);
 

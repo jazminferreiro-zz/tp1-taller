@@ -20,13 +20,13 @@
 
 
 int main(int argc, char *argv[]){
-   if (argc < 3){
+   if (argc < 4){
     printf("Parametros incorrectos. \n");
     return ERROR;
   }
   int is_client = strcmp(argv[1],"client"); 
   if (is_client == 0){
-    if (argc < 5){
+    if (argc < 6){
       printf("Parametros incorrectos. \n");
       return ERROR;
     }

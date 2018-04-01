@@ -59,7 +59,6 @@ void stdin_input_hexa_lowercase(char * input, int len){
   for (int i=0; i < len; i++){
     printf("%02x", input[i] & 0xff);
   }
-  printf("\n");
 }
 
 void encryptor_encrypt(encryptor_t * self, char * input, int len){
